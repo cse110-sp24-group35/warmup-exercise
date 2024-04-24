@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-    loadTasks();
+    initTasks();
     document.getElementById('addTaskForm').addEventListener('submit', addTask);
 });
+
+let tasks = []; // Global array to store tasks
+
+// Initialize tasks from JSON file and setup the application
+function initTasks() {
+    fetch('data/tasks.json')
+        .then(response => response.json())
+        .then(data => {
+            tasks = data.tasks; // Load tasks into the global array
+            displayTasks(); // Display all tasks initially loaded
+        })
+        .catch(error => console.error('Error loading tasks:', error));
+}
 
 // Add a new task
 function addTask(event) {
@@ -18,26 +31,14 @@ function addTask(event) {
         tags: taskTags
     };
 
-    // Assuming tasks are stored in a global array for simplicity
-    tasks.push(newTask);
-    displayTasks(tasks);
+    tasks.push(newTask); // Add to global tasks array
+    displayTasks(); // Update display to show all tasks
 
-    // Clear form after submission
-    document.getElementById('addTaskForm').reset();
-}
-
-// Load tasks from the JSON file and display them
-function loadTasks() {
-    fetch('data/tasks.json')
-        .then(response => response.json())
-        .then(data => {
-            displayTasks(data.tasks);
-        })
-        .catch(error => console.error('Error loading tasks:', error));
+    document.getElementById('addTaskForm').reset(); // Clear form after submission
 }
 
 // Display tasks in the UI
-function displayTasks(tasks) {
+function displayTasks() {
     const taskList = document.getElementById('taskItems');
     taskList.innerHTML = ''; // Clear existing tasks
 
@@ -50,36 +51,13 @@ function displayTasks(tasks) {
 
 // Sort tasks by deadline
 function sortTasks() {
-    fetch('data/tasks.json')
-        .then(response => response.json())
-        .then(data => {
-            const sortedTasks = data.tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
-            displayTasks(sortedTasks);
-        })
-        .catch(error => console.error('Error sorting tasks:', error));
+    tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    displayTasks();
 }
 
 // Filter tasks by tag
 function filterTasks() {
     const tag = prompt("Enter the tag to filter by:");
-    fetch('data/tasks.json')
-        .then(response => response.json())
-        .then(data => {
-            const filteredTasks = data.tasks.filter(task => task.tags.includes(tag));
-            displayTasks(filteredTasks);
-        })
-        .catch(error => console.error('Error filtering tasks:', error));
+    const filteredTasks = tasks.filter(task => task.tags.includes(tag));
+    displayTasks(filteredTasks);
 }
-
-// Keyboard navigation support (basic example)
-document.addEventListener('keydown', function (event) {
-    const key = event.key;
-    switch (key) {
-        case 's':
-            sortTasks();
-            break;
-        case 'f':
-            filterTasks();
-            break;
-    }
-});
