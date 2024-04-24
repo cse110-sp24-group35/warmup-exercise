@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+/*HIDES desktop class elements on phone*/
+@media screen and (max-width: 500px) {
+    .desktop{
+        display: none;
+    }
+    #taskListText{
+        top:8px;
+    }
+}
+
+
 /* Body and Document Setup */
 body {
     font-family: 'Arial', sans-serif; /* Fallback to a commonly available font */
@@ -21,8 +32,25 @@ header {
     text-align: center;
 }
 
+header > div {
+    height: 64px;
+}
+
+
 header h1 {
     margin: 0;
+    position: relative;
+    display: inline-block;
+    bottom: 5px;
+    font-family: 'Fredoka One';
+    letter-spacing: 1px;
+}
+
+header img {
+    position: relative;
+    width: auto;
+    height: 50px;
+    top: 5px;
 }
 
 main {
