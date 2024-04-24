@@ -21,6 +21,18 @@
             <ul id="taskItems">
                 <!-- Tasks will be dynamically loaded here -->
             </ul>
+            <!-- Add Task Form -->
+            <form id="addTaskForm">
+                <input type="text" id="taskName" placeholder="Enter task name" required>
+                <input type="date" id="taskDeadline" required>
+                <select id="taskPriority">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <input type="text" id="taskTags" placeholder="Enter tags comma-separated (e.g., work,urgent)">
+                <button type="submit">Add Task</button>
+            </form>
         </section>
     </main>
     <footer>

@@ -1,6 +1,30 @@
 document.addEventListener('DOMContentLoaded', function () {
     loadTasks();
+    document.getElementById('addTaskForm').addEventListener('submit', addTask);
 });
+
+// Add a new task
+function addTask(event) {
+    event.preventDefault();
+    const taskName = document.getElementById('taskName').value;
+    const taskDeadline = document.getElementById('taskDeadline').value;
+    const taskPriority = document.getElementById('taskPriority').value;
+    const taskTags = document.getElementById('taskTags').value.split(',').map(tag => tag.trim());
+
+    const newTask = {
+        name: taskName,
+        deadline: taskDeadline,
+        priority: taskPriority,
+        tags: taskTags
+    };
+
+    // Assuming tasks are stored in a global array for simplicity
+    tasks.push(newTask);
+    displayTasks(tasks);
+
+    // Clear form after submission
+    document.getElementById('addTaskForm').reset();
+}
 
 // Load tasks from the JSON file and display them
 function loadTasks() {
