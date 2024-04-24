@@ -22,14 +22,37 @@
             </ul>
             <!-- Add Task Form -->
             <form id="addTaskForm">
-                <input type="text" id="taskName" placeholder="Enter task name" required>
-                <input type="date" id="taskDeadline" required>
-                <select id="taskPriority">
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
-                </select>
-                <input type="text" id="taskTags" placeholder="Enter tags comma-separated (e.g., work,urgent)">
+                <label>
+                    <div class="label1">Enter Task:</div>
+                    <input type="text" id="taskName" placeholder="Enter task name" required>
+                </label>
+                <label>
+                    <div class="label1">Enter Tag:</div>
+                    <input type="text" id="taskTags" placeholder="Enter tags comma-separated (e.g., work,urgent)">
+                </label>
+                <div class="deadline-priority">
+                    <label>
+                        <div class="label2">Deadline:</div>
+                        <input type="date" id="taskDeadline" required>
+                    </label>
+                    <label>
+                        <div class="label2">Task Priority:</div>
+                        <div class="priority">
+                            <label class="priority-label">
+                              <input type="radio" name="priority" value="Low">
+                              <span>Low</span>
+                            </label>
+                            <label class="priority-label">
+                              <input type="radio" name="priority" value="Medium">
+                              <span>Medium</span>
+                            </label>
+                            <label class="priority-label">
+                              <input type="radio" name="priority" value="High">
+                              <span>High</span>
+                            </label>
+                          </div>
+                    </label>
+                </div>
                 <button type="submit">Add Task</button>
             </form>
         </section>
