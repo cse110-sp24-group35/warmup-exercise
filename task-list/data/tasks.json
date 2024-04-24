@@ -1,0 +1,34 @@
+{
+    "tasks": [
+        {
+            "name": "Complete project proposal",
+            "deadline": "2024-04-30",
+            "priority": "High",
+            "tags": ["work", "urgent"]
+        },
+        {
+            "name": "Update website content",
+            "deadline": "2024-05-15",
+            "priority": "Medium",
+            "tags": ["work", "maintenance"]
+        },
+        {
+            "name": "Plan graduation party",
+            "deadline": "2024-06-01",
+            "priority": "Low",
+            "tags": ["personal", "event"]
+        },
+        {
+            "name": "Prepare for quarterly review",
+            "deadline": "2024-05-10",
+            "priority": "High",
+            "tags": ["work", "review"]
+        },
+        {
+            "name": "File tax returns",
+            "deadline": "2024-04-20",
+            "priority": "High",
+            "tags": ["finance", "urgent"]
+        }
+    ]
+}

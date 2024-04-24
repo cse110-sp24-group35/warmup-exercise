@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Widget</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Task Manager</h1>
+    </header>
+    <main>
+        <section id="task-list">
+            <h2>Tasks</h2>
+            <div id="filters">
+                <button onclick="sortTasks()">Sort by Deadline</button>
+                <button onclick="filterTasks()">Filter by Tag</button>
+            </div>
+            <ul id="taskItems">
+                <!-- Tasks will be dynamically loaded here -->
+            </ul>
+            <!-- Add Task Form -->
+            <form id="addTaskForm">
+                <input type="text" id="taskName" placeholder="Enter task name" required>
+                <input type="date" id="taskDeadline" required>
+                <select id="taskPriority">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <input type="text" id="taskTags" placeholder="Enter tags comma-separated (e.g., work,urgent)">
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Task Manager Widget. All rights reserved.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="utils.js"></script>
+</body>
+</html>
