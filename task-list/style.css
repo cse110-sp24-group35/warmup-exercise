@@ -97,13 +97,29 @@ button:hover {
     background-color: #0056b3;
 }
 
+
+/* Add Task Form */ 
+
 #addTaskForm {
-    margin-bottom: 20px;
+    margin-top: 2%;
+    display: grid;
+    gap: 10px;
+    padding: 0 10% 0 10%;
+}
+
+#addTaskForm label div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #addTaskForm input, #addTaskForm select {
-    margin-right: 10px;
+    margin-right: 0.8rem;
     padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #8F8F9D;
+    width: 100%;
 }
 
 #addTaskForm button {
@@ -119,8 +135,45 @@ button:hover {
     background-color: #0056b3;
 }
 
+#addTaskForm input:hover {
+    border-color: #676774;
+}
+
+.addTaskFormLabel1 {
+    font-size: 22px;
+}
+.addTaskFormLabel2 {
+    font-size: 16px;
+}
+.addTaskFormLabel1, .addTaskFormLabel2 {
+    text-align: center;
+    font-weight: bold;
+}        
+.addTaskFormDeadlinePriority {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.addTaskFormPriority:hover {
+    border-color: #676774;
+}
+.addTaskFormPriority {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #8F8F9D;
+    border-radius: 20px;
+}
+.addTaskFormPriorityLabel {
+    display: grid;
+    grid-template-columns: auto 80px;
+    align-items: center;
+}
+
+
 footer {
-    margin-top: 30px;
+    margin-top: 1rem;
     text-align: center;
     padding: 10px 0;
     background-color: #333;
