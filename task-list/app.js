@@ -67,7 +67,7 @@ function displayTasks() {
         tags.textContent = ` - Tags:`;
         for(const tag of task.tags)
         {
-            tags.textContent += ` ${task.tags},`; //Adds all tags
+            tags.textContent += ` ${tag},`; //Adds all tags
         }
         tags.textContent = tags.textContent.substring(0, tags.textContent.length-1); // Removes ending comma
 
