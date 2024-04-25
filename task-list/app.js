@@ -21,7 +21,16 @@ function addTask(event) {
     event.preventDefault();
     const taskName = document.getElementById('taskName').value;
     const taskDeadline = document.getElementById('taskDeadline').value;
-    const taskPriority = document.getElementById('taskPriority').value;
+    let taskPriority;
+    const priorityButtons = document.getElementsByName('taskPriority');
+    
+    for (let button of priorityButtons) {
+        if (button.checked) {
+            taskPriority = button.value;
+            break;
+        }
+    }
+    
     const taskTags = document.getElementById('taskTags').value.split(',').map(tag => tag.trim());
 
     const newTask = {
