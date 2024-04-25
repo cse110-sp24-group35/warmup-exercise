@@ -46,12 +46,52 @@ main {
     list-style: none;
 }
 
-#taskItems li {
+#taskItems .listDivOuter{
     background: #e9ecef;
     margin-top: 8px;
     padding: 10px;
     border-radius: 5px;
     border-left: 5px solid #007bff;
+    position: relative;
+    display: flex;
+}
+
+#taskItems p {
+    color:gray;
+    font-family: 'caveat';
+    font-size: 18px;
+    margin-top: -10px;
+}
+
+#taskItems button{
+    width: 30px;
+    height: 30px;
+    padding: 10px 10px;
+    background-color:#AFAFAD;
+    color: #ffffff;
+    border: red;
+    border-radius: 5px;
+    border-style: ridge;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+#taskItems li{
+    font-size: 24px;
+    font-family: 'caveat';
+}
+
+/* Styling for different priorities */
+.High{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.Medium{
+    font-weight: bold;
 }
 
 /* Buttons */
@@ -168,3 +208,4 @@ button:focus, button:hover {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
+
