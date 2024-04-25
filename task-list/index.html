@@ -23,34 +23,34 @@
             <!-- Add Task Form -->
             <form id="addTaskForm">
                 <label>
-                    <div class="label1">Enter Task:</div>
+                    <div class="addTaskFormLabel1">Enter Task:</div>
                     <input type="text" id="taskName" placeholder="Enter task name" required>
                 </label>
                 <label>
-                    <div class="label1">Enter Tag:</div>
+                    <div class="addTaskFormLabel1">Enter Tag:</div>
                     <input type="text" id="taskTags" placeholder="Enter tags comma-separated (e.g., work,urgent)">
                 </label>
-                <div class="deadline-priority">
+                <div class="addTaskFormDeadlinePriority">
                     <label>
-                        <div class="label2">Deadline:</div>
+                        <div class="addTaskFormLabel2">Deadline:</div>
                         <input type="date" id="taskDeadline" required>
                     </label>
                     <label>
-                        <div class="label2">Task Priority:</div>
-                        <div class="priority">
-                            <label class="priority-label">
-                              <input type="radio" name="priority" value="Low">
-                              <span>Low</span>
+                        <div class="addTaskFormLabel2">Task Priority:</div>
+                        <div class="addTaskFormPriority">
+                            <label class="addTaskFormPriorityLabel">
+                                <input type="radio" name="taskPriority" value="Low">
+                                <span>Low</span>
                             </label>
-                            <label class="priority-label">
-                              <input type="radio" name="priority" value="Medium">
-                              <span>Medium</span>
+                            <label class="addTaskFormPriorityLabel">
+                                <input type="radio" name="taskPriority" value="Medium">
+                                <span>Medium</span>
                             </label>
-                            <label class="priority-label">
-                              <input type="radio" name="priority" value="High">
-                              <span>High</span>
+                            <label class="addTaskFormPriorityLabel">
+                                <input type="radio" name="taskPriority" value="High">
+                                <span>High</span>
                             </label>
-                          </div>
+                        </div>
                     </label>
                 </div>
                 <button type="submit">Add Task</button>

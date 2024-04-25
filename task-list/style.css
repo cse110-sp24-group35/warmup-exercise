@@ -111,36 +111,33 @@ button:hover {
     border-color: #676774;
 }
 
-#addTaskForm .label1 {
+.addTaskFormLabel1 {
     font-size: 22px;
 }
-
-#addTaskForm .label2 {
+.addTaskFormLabel2 {
     font-size: 16px;
 }
-
-#addTaskForm .label1, #addTaskForm .label2 {
+.addTaskFormLabel1, .addTaskFormLabel2 {
     text-align: center;
     font-weight: bold;
 }        
-
-#addTaskForm .deadline-priority {
+.addTaskFormDeadlinePriority {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
-#addTaskForm .priority:hover {
+.addTaskFormPriority:hover {
     border-color: #676774;
 }
-#addTaskForm .priority {
+.addTaskFormPriority {
     display: inline-block;
     padding: 10px;
     border: 1px solid #8F8F9D;
     border-radius: 20px;
 }
-#addTaskForm .priority-label {
+.addTaskFormPriorityLabel {
     display: grid;
     grid-template-columns: auto 80px;
     align-items: center;
