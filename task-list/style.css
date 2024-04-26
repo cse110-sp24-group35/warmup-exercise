@@ -6,12 +6,9 @@
 }
 
 /*HIDES desktop class elements on phone*/
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .desktop{
         display: none;
-    }
-    #taskListText{
-        top:8px;
     }
 }
 
@@ -27,30 +24,29 @@ body {
 
 header {
     background-color: #0056b3;
+    position: relative;
     color: #ffffff;
     padding: 10px 20px;
     text-align: center;
 }
 
 header > div {
-    height: 64px;
+    height:4em;
+    display:flex;
+    justify-content: center;
 }
 
-
 header h1 {
-    margin: 0;
-    position: relative;
     display: inline-block;
-    bottom: 5px;
-    font-family: 'Fredoka One';
-    letter-spacing: 1px;
+    align-self: center;
+    font-family: 'Jetbrains Mono';
+    justify-self: center;
 }
 
 header img {
-    position: relative;
-    width: auto;
-    height: 50px;
-    top: 5px;
+    height: 3em;
+    justify-self: center;
+    align-self: center;
 }
 
 main {
