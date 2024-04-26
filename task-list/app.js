@@ -52,9 +52,29 @@ function displayTasks() {
     taskList.innerHTML = ''; // Clear existing tasks
 
     tasks.forEach(task => {
-        const li = document.createElement('li');
-        li.textContent = `${task.name} - Deadline: ${task.deadline} - Priority: ${task.priority}`;
-        taskList.appendChild(li);
+        const liDiv = document.createElement('div'); // Create "box" for each element
+        liDiv.classList.add("taskEntryContainer");
+        const liTextDiv = document.createElement('div'); // Separates button from text
+
+        const li = document.createElement('li'); //Create the list item with main text
+        li.textContent = `${task.name} `;
+        li.classList.add(task.priority);
+
+        const liDeadline = document.createElement('p');
+        liDeadline.textContent = `- Deadline: ${task.deadline}`;
+
+        const tags = document.createElement('p'); //Creates tags element
+        tags.textContent = ` - Tags: ${task.tags}`;
+
+        const liButton = document.createElement('button'); // Create "box" for each element
+
+        liDiv.appendChild(liButton);
+        liTextDiv.appendChild(li);
+        liTextDiv.appendChild(liDeadline)
+        liTextDiv.appendChild(tags);
+        liDiv.appendChild(liTextDiv);
+
+        taskList.appendChild(liDiv);
     });
 }
 
