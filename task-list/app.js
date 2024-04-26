@@ -53,7 +53,7 @@ function displayTasks() {
 
     tasks.forEach(task => {
         const liDiv = document.createElement('div'); // Create "box" for each element
-        liDiv.classList.add("listDivOuter");
+        liDiv.classList.add("taskEntryContainer");
         const liTextDiv = document.createElement('div'); // Separates button from text
 
         const li = document.createElement('li'); //Create the list item with main text
@@ -64,12 +64,7 @@ function displayTasks() {
         liDeadline.textContent = `- Deadline: ${task.deadline}`;
 
         const tags = document.createElement('p'); //Creates tags element
-        tags.textContent = ` - Tags:`;
-        for(const tag of task.tags)
-        {
-            tags.textContent += ` ${tag},`; //Adds all tags
-        }
-        tags.textContent = tags.textContent.substring(0, tags.textContent.length-1); // Removes ending comma
+        tags.textContent = ` - Tags: ${task.tags}`;
 
         const liButton = document.createElement('button'); // Create "box" for each element
 

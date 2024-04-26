@@ -46,42 +46,42 @@ main {
     list-style: none;
 }
 
-#taskItems .listDivOuter{
+#taskItems .taskEntryContainer{
     background: #e9ecef;
-    margin-top: 8px;
-    padding: 10px;
-    border-radius: 5px;
-    border-left: 5px solid #007bff;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: .3rem;
+    border-left: .4rem solid #007bff;
     position: relative;
     display: flex;
 }
 
 #taskItems p {
     color:gray;
-    font-family: 'caveat';
+    font-family: 'JetBrains Mono';
     font-size: 18px;
-    margin-top: -10px;
+    margin-top: -0.5rem;
 }
 
 #taskItems button{
-    width: 30px;
-    height: 30px;
-    padding: 10px 10px;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.6rem 0.6rem;
     background-color:#AFAFAD;
     color: #ffffff;
     border: red;
-    border-radius: 5px;
+    border-radius: 0.4rem;
     border-style: ridge;
     cursor: pointer;
     transition: background-color 0.3s;
     align-self: center;
-    margin-right: 20px;
-    margin-left: 5px;
+    margin-right: 1rem;
+    margin-left: 0.3rem;
 }
 
 #taskItems li{
     font-size: 24px;
-    font-family: 'caveat';
+    font-family: 'JetBrains Mono';
 }
 
 /* Styling for different priorities */
