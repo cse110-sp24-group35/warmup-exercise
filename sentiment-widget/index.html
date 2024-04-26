@@ -5,50 +5,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Survey</title>
         <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
     </head>
         
 
     <body>
         <header>
-            <img src="imgs/logo_color.svg" alt="Coding Kittens Logo">
-            <h1> Coding Kittens</h1>
+            <img src="imgs/good_button_color.svg" alt="Coding Kittens Logo">
+            <h1>Coding Kittens</h1>
         </header> 
         <main> 
-            <h1> How Are We Doing Today?</h1>
+            <h1> How Are You Doing Today?</h1>
             <h4> Your feedback helps us improve</h4>  
             <br>
-            <h2> Rate Your Experince</h2> 
-        <article>    
+            <h2> Rate Your Experience</h2>   
             <div class="survey">
                 <input type="radio" id="VeryBad" name="mood" value="Bad">
                 <label for="VeryBad">
                     
-                    <img src="imgs/very_bad_button.svg" alt="Very Bad">
+                    <img src="imgs/very_bad_color.svg" alt="Very Bad">
                 </label>
                 <input type="radio" id="Bad" name="mood" value="Bad">
                 <label for="Bad" id="labelBad">
             
-                    <img src="imgs/bad_button.svg" alt="Bad">
+                    <img src="imgs/bad_button_color.svg" alt="Bad">
                 </label>
                 
                 <input type="radio" id="Fair" name="mood" value="Fair">
                 <label for="Fair" id="labelFair">
-                    <img src="imgs/fair_button.svg" alt="Fair">
+                    <img src="imgs/fair_button_color.svg" alt="Fair">
                 </label>
                 <input type="radio" id="Good" name="mood" value="Good">
                 <label for="Good" id="labelGood">
-                    <img src="imgs/good_button.svg" alt="Good">
+                    <img src="imgs/good_button_color.svg" alt="Good">
                 </label>
                 <input type="radio" id="VeryGood" name="mood" value="VeryGood">
                 <label for="VeryGood" id="labelVeryGood">
-                    <img src="imgs/very_good_button.svg" alt="Very Good">
+                    <img src="imgs/very_good_color.svg" alt="Very Good">
                 </label>
-                
+                <p>Very Bad</p>
+                <p>Bad</p>
+                <p>Fair</p>
+                <p>Good</p>
+                <p>Very Good</p>
             </div>
             
             <br>
                 
-            <label for="plz-expln">Please Explain (Optional)</label>
+            <label for="plz-expln">Please Explain Your Answer (Optional)</label>
             <br>
             <textarea id="plz-expln" name="plz-expln" placeholder="Please elaborate here..."></textarea> 
             <br> 
@@ -59,10 +63,10 @@
             
             <br>
             <button type="button" id="submit-btn">Submit</button>
-        </article>    
+ 
 
         </main>
-        <footer></footer>
+        <footer>&copy; 2024 Coding Kittens. All rights reserved.</footer>
     </body> 
     
 
