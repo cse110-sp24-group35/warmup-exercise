@@ -1,0 +1,135 @@
+header{
+    text-align: center;
+}
+*{
+    background-color: aliceblue;
+}
+
+textarea{
+    border-radius: 2vw;
+}
+
+img{
+    width: 10vw;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+img{
+    border-radius: 20em;
+}
+.survey{
+    display:grid;
+    margin: 0 0 0 0;
+    
+    height:20vh;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 50%;
+    row-gap: 10%;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+input{
+    grid-column: 1/2;
+    grid-row: 0/1;
+    display: none;
+}
+#labelVeryBad{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: red;
+}
+#labelVeryBad:checked{
+    background-color: chartreuse;
+}
+#Bad{
+    grid-column: 2/3;
+    grid-row: 0/1;
+}
+#labelBad{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+#Fair{
+    grid-column: 3/4;
+    grid-row: 0/1;
+}
+#labelFair{
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+#Good{
+    grid-column: 4/5;
+    grid-row: 0/1;
+}
+#labelGood{
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+#VeryGood{
+    grid-column: 5/6;
+    grid-row: 0/1;
+}
+#labelVeryGood{
+    grid-column: 5/6;
+    grid-row: 1/2;
+}
+
+#VeryBad:checked+label>img{
+    background-color: rgba(255, 0, 0, 0.335);
+}
+#Bad:checked+label>img{
+    background-color: rgba(255, 166, 0, 0.323);
+}
+#Fair:checked+label>img{
+    background-color: rgba(255, 255, 0, 0.355);
+}
+#Good:checked+label>img{
+    background-color: rgba(153, 205, 50, 0.316);
+}
+#VeryGood:checked+label>img{
+    background-color: rgba(0, 128, 0, 0.314);
+}
+
+input[type="radio"]:checked button{
+    background-color: red;
+}
+
+
+
+
+
+input[type="text"],
+textarea {
+    /* Set the width and height */
+    width: 90%; /* Full width of the container */
+    height: auto;
+    
+    /* Add padding for inner space */
+    padding: 10px;
+    
+    /* Set border styling */
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    
+    /* Set background color */
+    background-color: #f9f9f9; /* Light background */
+    
+    /* Set font styling */
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* Font size */
+    
+    /* Adjust text color */
+    color: #333; /* Dark gray text color */
+    
+    /* Transition effects for smooth hover/focus changes */
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    
+    /* Add a box shadow for subtle depth */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
