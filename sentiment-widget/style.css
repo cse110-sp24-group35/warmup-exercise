@@ -1,23 +1,42 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('https://fonts.googleapis.com/css?family=JetBrains Mono');
+}
+
+
 header{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:1%
 }
 *{
     background-color: aliceblue;
+    font-family: "JetBrains Mono";
 }
 
 textarea{
     border-radius: 2vw;
 }
 
-img{
-    width: 10vw;
-    margin-top: 0;
-    margin-left: 0;
+
+
+label>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20em;
+    background-size: 10%;
+    background-color: #33333300;
+    object-fit: cover;
 }
 
-img{
-    border-radius: 20em;
-}
+[alt="Coding Kittens Logo"]{
+    height: 10em;
+    margin-right: -3em;
+
+    
+} 
+
 .survey{
     display:grid;
     margin: 0 0 0 0;
@@ -31,7 +50,9 @@ img{
     margin-right: 0;
     text-align: center;
 }
-
+p{
+    background-color: #33333300;
+}
 input{
     grid-column: 1/2;
     grid-row: 0/1;
@@ -94,7 +115,7 @@ input{
     background-color: rgba(0, 128, 0, 0.314);
 }
 
-input[type="radio"]:checked button{
+label[type="radio"]:checked button{
     background-color: red;
 }
 
@@ -105,9 +126,9 @@ input[type="radio"]:checked button{
 input[type="text"],
 textarea {
     /* Set the width and height */
-    width: 90%; /* Full width of the container */
+    width: 95%; /* Full width of the container */
     height: auto;
-    
+    margin:0 0 0 0;
     /* Add padding for inner space */
     padding: 10px;
     
@@ -119,7 +140,7 @@ textarea {
     background-color: #f9f9f9; /* Light background */
     
     /* Set font styling */
-    font-family: Arial, sans-serif;
+    
     font-size: 16px; /* Font size */
     
     /* Adjust text color */
@@ -133,3 +154,8 @@ textarea {
 }
 
 
+footer{
+    position:absolute;
+    left:5px;
+    bottom:5px;
+}
