@@ -124,7 +124,10 @@ button {
     background-color: #007bff;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
+    border-width: 5px;  /* Sets the border width to 2 pixels */
+    border-style: solid;  /* Required to display the border */
+    border-color: #007bff;  /* Sets the border color */
     cursor: pointer;
     transition: background-color 0.3s;
 }
