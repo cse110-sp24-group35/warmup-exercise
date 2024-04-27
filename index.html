@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Survey</title>
+        <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    </head>
+        
+
+    <body>
+        <div class="layout">
+            <header>
+                <object data="assets/logo_color.svg" type="image/svg+xml" class="logo"></object>
+                <h1>Coding Kittens</h1>
+            </header>
+
+            <main>
+                <noscript>We are sorry, but you need to enable JavaScript to properly interact with this widget!</noscript>
+            </main>
+            <footer>&copy; 2024 Coding Kittens. All rights reserved.</footer>
+        </div>
+
+        <script>
+            document.querySelector("main").innerHTML = `
+                <div id="feedback-page">
+                    <div>
+                        <h2>Coding Kittens wants to know about your day!</h2>
+                    </div>
+                    <form id="feedback-form" onsubmit="onSubmit(event)" novalidate>
+                        <div class="feedback-container">
+                            <div class="rating-container">
+                                <div class="rating-item">
+                                    <input type="radio" name="sentiment" value="Very Bad" required/>
+                                    <object data="assets/bad_uncolored.svg" type="image/svg+xml" class="sentiment-icon"></object>
+                                    <p>Very Bad</p>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" name="sentiment" value="Bad" required/>
+                                    <object data="assets/bad_uncolored.svg" type="image/svg+xml" class="sentiment-icon"></object>
+                                    <p>Bad</p>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" name="sentiment" value="Fair" required/>
+                                    <object data="assets/fair_uncolored.svg" type="image/svg+xml" class="sentiment-icon"></object>
+                                    <p>Fair</p>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" name="sentiment" value="Good" required/>
+                                    <object data="assets/good_uncolored.svg" type="image/svg+xml" class="sentiment-icon"></object>
+                                    <p>Good</p>
+                                </div>
+                                <div class="rating-item">
+                                    <input type="radio" name="sentiment" value="Very Good" required/>
+                                    <object data="assets/very_good_uncolored.svg" type="image/svg+xml" class="sentiment-icon"></object>
+                                    <p>Very Good</p>
+                                </div>
+                            </div>
+
+                            <div class="optional-sentiment-feedback-container">
+                                <h2>Please Explain (Optional):</h2>
+                                <label for="optional-sentiment-feedback"></label>
+                                <input id="optional-sentiment-feedback" type="text" placeholder="Please elaborate here."/>
+                            </div>
+
+                            <div>
+                                <h2>Additional Comments (Optional):</h2>
+                                <label for="optional-comments"></label>
+                                <input id="optional-comments" type="text" placeholder="Please elaborate here."/>
+                            </div>
+
+                            <div class="rating-submission-container">
+                                <button type="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="result-page">
+                    <div class="result-container">
+                        <p>Thank you for your input!</p>
+                        <p id="result-text">TO BE DETERMINED</p>
+                        <p>Please let us know if you have any other questions / concerns.</p>
+
+                        <button id="submit-another" type="button">Submit Another</button>
+                    </div>
+                </div>
+            `
+
+            document.getElementById("submit-another").addEventListener("click", onSubmitAnother);
+
+            // We want each rating icon to be associated with form input (makes our life easier when retrieving values later)
+            // One solution is to use a "shadow button" that we bind each icon to, when user clicks one icon
+            // we let the button bound to that icon be "clicked" as well
+            for (let item of document.getElementsByClassName("rating-item")) {
+                item.onclick = () => {
+                    const shadowButton = item.querySelector("input[name=sentiment]");
+                    shadowButton.checked = true;
+
+                    const logo = item.querySelector("object");
+                    logo.setAttribute("data", logo.getAttribute("data").replace("uncolored", "colored"));
+
+                    for (let other of document.querySelectorAll(".rating-item > object")) {
+                        if (other !== logo) {
+                            if (other.getAttribute("data").includes("_colored")) {
+                                other.setAttribute("data", other.getAttribute("data").replace("colored", "uncolored"));
+                            }
+                        }
+                    }
+                }
+
+                // Change svg src to colored / uncolored based on hover event
+                item.onmouseover = () => {
+                    const logo = item.querySelector("object");
+                    logo.setAttribute("data", logo.getAttribute("data").replace("uncolored", "colored"));
+                }
+
+                item.onmouseout = () => {
+                    const shadowButton = item.querySelector("input[name=sentiment]");
+
+                    if (!shadowButton.checked) {
+                        const logo = item.querySelector("object");
+                        logo.setAttribute("data", logo.getAttribute("data").replace("colored", "uncolored"));
+                    }
+                }
+            }
+
+            // pre-defined responses to the mood
+            const responses = {
+                "Very Bad": [
+                    "Today seems like a stormy sea, but remember, even the roughest waters eventually calm.",
+                    "It's okay to feel overwhelmed; take a moment to breathe and gather your strength.",
+                    "Though the day may be rough, find solace in the small moments of peace and comfort.",
+                    "Sending you a virtual hug; sometimes, a little warmth can brighten the darkest days.",
+                    "Even in the midst of chaos, know that you're not alone, and tomorrow holds the promise of better days."
+                ],
+                "Bad": [
+                    "Chin up, even the darkest night eventually surrenders to dawn.",
+                    "Today may not be your favorite chapter, but remember, it's just one page of your story.",
+                    "Rough patches are part of life's journey; keep pushing forward, brighter moments await.",
+                    "It's okay to stumble; what matters most is the courage to rise and try again.",
+                    "Find strength in resilience; every setback is an opportunity for growth and learning."
+                ],
+                "Fair": [
+                    "A day of equilibrium; not extraordinary, but not without its moments of contentment.",
+                    "In the middle ground lies a sense of balance, where neither highs nor lows dominate.",
+                    "Embrace the ordinary; sometimes, the beauty lies in the simplicity of everyday moments.",
+                    "Today offers a gentle reminder that life's rhythm includes both calm and commotion.",
+                    "An average day can still be filled with small joys and quiet victories to cherish."
+                ],
+                "Good": [
+                    "Basking in the glow of positivity; today is a testament to your resilience and optimism.",
+                    "In the symphony of life, today's melody sings of joy and accomplishment.",
+                    "Celebrate the triumphs, big and small, that make today shine brighter than the rest.",
+                    "Today's canvas is painted with hues of happiness and contentment.",
+                    "Savor the goodness of today, for it's a reflection of your positive energy and determination."
+                ],
+                "Very Good": [
+                    "Today feels like a victory lap, a testament to your strength, positivity, and unwavering spirit.",
+                    "Brimming with delight and satisfaction, today is a masterpiece of joy and accomplishment.",
+                    "In the grand tapestry of life, today's thread sparkles with moments of pure bliss and fulfillment.",
+                    "A day so good, it's worth pausing to appreciate the abundance of blessings it brings.",
+                    "Today radiates with an extraordinary glow, a beacon of hope and happiness in a world of possibilities."
+                ]
+            }
+
+            // Reset the form state
+            function onSubmitAnother() {
+                const form = document.getElementById("feedback-form");
+
+                form.elements["optional-sentiment-feedback"].value = "";
+                form.elements["optional-comments"].value = "";
+
+                const feedbackPage = document.getElementById("feedback-page");
+                const resultPage = document.getElementById("result-page");
+
+                const resultText = document.getElementById("result-text");
+                resultText.textContent = "TO BE DETERMINED";
+
+                feedbackPage.style.display = "block";
+
+                // Possibly due to how Chromium engine handles none display while having DOM updated
+                // Resetting the attribute back to uncolored does not actually take effect if I do it
+                // during `none` display mode, it has to be rendered first then update data
+                // However, this does not seem like to change the rendering behavior at all in terms of
+                // user interface
+                for (let item of document.getElementsByClassName("rating-item")) {
+                    const shadowButton = item.querySelector("input[name=sentiment]");
+                    shadowButton.checked = false;
+
+                    const logo = item.querySelector("object");
+                    if (logo.getAttribute("data").includes("_colored")) {
+                        logo.setAttribute("data", logo.getAttribute("data").replace("colored", "uncolored"));
+                    }
+                }
+
+
+                resultPage.style.display = "none";
+            }
+
+            // Submit the current form state
+            function onSubmit(event) {
+                event.preventDefault();
+
+                const elements = event.target.elements;
+                const sentiment = elements.sentiment.value;
+                if (!sentiment?.length) {
+                    alert("We haven't received your sentiment yet!");
+                } else {
+                    const feedbackPage = document.getElementById("feedback-page");
+                    const resultPage = document.getElementById("result-page");
+
+                    const resultText = document.getElementById("result-text");
+                    const response = responses[sentiment];
+
+                    // We randomly pick a response for the corresponding sentiment
+                    resultText.textContent = response[Math.floor(response.length * Math.random())];
+
+                    feedbackPage.style.display = "none";
+                    resultPage.style.display = "block";
+
+                    // Keep in mind that the elaboration related (text input) stuff are not currently being used
+                    // this is because this app is purely a static website with no dynamic page transition
+                    // there is no way to make use of the text input since we can't store it in database either
+                    // plus, there is no backend.
+
+                    // Therefore, we just leave the form like this and if there's a possibility of integrating a
+                    // backend to this widget, we can directly make use of the existing text input element.
+                }
+            }
+        </script>
+    </body> 
+    
+
+    

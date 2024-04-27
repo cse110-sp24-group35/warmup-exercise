@@ -1,0 +1,149 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('https://fonts.googleapis.com/css?family=JetBrains Mono');
+}
+
+* {
+    font-family: "JetBrains Mono", serif;
+}
+
+.layout {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+@media (max-width: 600px) {
+    .layout {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .layout {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+object {
+    pointer-events: none;
+}
+
+header > h1 {
+    text-align: center;
+    top: 50%;
+}
+
+.logo, .sentiment-icon {
+    width: 128px;
+    height: 128px;
+}
+
+.rating-container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.rating-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform .2s;
+}
+
+.rating-item:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.rating-item > p {
+    margin: 0;
+}
+
+.rating-item > input[type="radio"] {
+    display: none;
+    position: absolute;
+}
+
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-submission-container {
+    width: 100%;
+    margin-top: 10%;
+}
+
+button {
+    cursor: pointer;
+
+    width: 100%;
+    padding: 3%;
+    border-radius: 10px;
+
+    background-color: deepskyblue;
+    font-size: x-large;
+}
+
+input {
+    min-height: 8vh;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border-radius: 5px;
+    border-color: #ccc;
+
+    background-color: #f9f9f9;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+footer {
+    margin-top: 10%;
+}
+
+#feedback-page {
+    display: block;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#result-page {
+    display: none;
+}
+
+#result-text {
+    font-size: x-large;
+}
+
+.optional-sentiment-feedback-container {
+    margin-top: 5%;
+}
