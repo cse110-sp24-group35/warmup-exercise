@@ -38,6 +38,10 @@
         </div>
 
         <script>
+            // Since we only want to display this when user has JavaScript enabled, the proper way to do this is to do
+            // something like what React did - load DOM in JS.
+            // However, directly manipulating with DOM is a very expensive operation and there's no need for it
+            // therefore, setting `.innerHTML` property for a designated container will be the best approach.
             document.querySelector("main").innerHTML = `
                 <div id="feedback-page">
                     <div>
@@ -105,6 +109,7 @@
                 </div>
             `
 
+            // Bind `onSubmitAnother` to the result page's button
             document.getElementById("submit-another").addEventListener("click", onSubmitAnother);
 
             // We want each rating icon to be associated with form input (makes our life easier when retrieving values later)
@@ -118,6 +123,7 @@
                     const logo = item.querySelector("object");
                     logo.setAttribute("data", logo.getAttribute("data").replace("uncolored", "colored"));
 
+                    // Reset other sentiment levels' icons to uncolored
                     for (let other of document.querySelectorAll(".rating-item > object")) {
                         if (other !== logo) {
                             if (other.getAttribute("data").includes("_colored")) {
@@ -206,12 +212,12 @@
                     const shadowButton = item.querySelector("input[name=sentiment]");
                     shadowButton.checked = false;
 
+                    // We uncolor all sentiment icons
                     const logo = item.querySelector("object");
                     if (logo.getAttribute("data").includes("_colored")) {
                         logo.setAttribute("data", logo.getAttribute("data").replace("colored", "uncolored"));
                     }
                 }
-
 
                 resultPage.style.display = "none";
             }
@@ -234,6 +240,8 @@
                     // We randomly pick a response for the corresponding sentiment
                     resultText.textContent = response[Math.floor(response.length * Math.random())];
 
+                    // Wacky JS-css SPA manipulation, just change one container to display none and enable
+                    // other container's display.
                     feedbackPage.style.display = "none";
                     resultPage.style.display = "block";
 
