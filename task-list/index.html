@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="Resources/iconAlpha.png">
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
 </head>
+
 <body>
     <header>
         <div>
@@ -20,8 +22,10 @@
         <section id="task-list">
             <h2>Tasks</h2>
             <div id="filters">
-                <button id="sortDeadlineButton" onclick="sortTasks()">Sort by Deadline</button>
                 <button onclick="filterTasks()">Filter by Tag</button>
+                <button id="sortDeadlineButton" onclick="sortTasks()">Sort</button>
+                <input type="checkbox" id="defaultOrNot" name="defaultOrNot" />
+                <label for="defaultOrNot">Sort by Deadline</label>
             </div>
             <ul id="taskItems">
                 <!-- Tasks will be dynamically loaded here -->
@@ -69,4 +73,5 @@
     <script src="app.js"></script>
     <script src="utils.js"></script>
 </body>
+
 </html>

@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let tasks = []; // Global array to store tasks
 let ogTasks = []; // Store tasks in original order
-let isSortedByDeadline = false; // Track whether the tasks are sorted by deadline
 
 // Initialize tasks from JSON file and setup the application
 function initTasks() {
@@ -13,7 +12,6 @@ function initTasks() {
         .then(response => response.json())
         .then(data => {
             tasks = data.tasks; // Load tasks into the global array
-            //ogTasks = JSON.parse(JSON.stringify(tasks)); //Create a deep copy
             ogTasks = [...tasks];
             displayTasks(); // Display all tasks initially loaded
         })
@@ -85,16 +83,13 @@ function displayTasks() {
 
 // Sort tasks by deadline
 function sortTasks() {
-    if (!isSortedByDeadline) {
+    const checkbox = document.getElementById('defaultOrNot');
+    if (checkbox.checked) {
         // Sort by deadline
         tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
-        isSortedByDeadline = true;
-        sortDeadlineButton.style.borderColor = "black"; // Change to white when sorted
     } else {
         // Revert to original order
         tasks = [...ogTasks];
-        isSortedByDeadline = false;
-        sortDeadlineButton.style.borderColor = "#007bff"; // Revert border color to default blue
 
     }
     displayTasks();
@@ -106,12 +101,6 @@ function filterTasks() {
     const filteredTasks = tasks.filter(task => task.tags.includes(tag));
     tasks = filteredTasks;
     displayTasks();
-    //tasks = JSON.parse(JSON.stringify(ogTasks));
     tasks = [...ogTasks];
 }
 
-function ogSort() {
-    //tasks = JSON.parse(JSON.stringify(ogTasks));
-    tasks = [...ogTasks];
-    displayTasks();
-}
