@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let tasks = []; // Global array to store tasks
+let ogTasks = []; // Store tasks in original order
 
 // Initialize tasks from JSON file and setup the application
 function initTasks() {
@@ -11,6 +12,7 @@ function initTasks() {
         .then(response => response.json())
         .then(data => {
             tasks = data.tasks; // Load tasks into the global array
+            ogTasks = [...tasks];
             displayTasks(); // Display all tasks initially loaded
         })
         .catch(error => console.error('Error loading tasks:', error));
@@ -41,6 +43,7 @@ function addTask(event) {
     };
 
     tasks.push(newTask); // Add to global tasks array
+    ogTasks = [...tasks];
     displayTasks(); // Update display to show all tasks
 
     document.getElementById('addTaskForm').reset(); // Clear form after submission
@@ -80,7 +83,15 @@ function displayTasks() {
 
 // Sort tasks by deadline
 function sortTasks() {
-    tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    const checkbox = document.getElementById('defaultOrNot');
+    if (checkbox.checked) {
+        // Sort by deadline
+        tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    } else {
+        // Revert to original order
+        tasks = [...ogTasks];
+
+    }
     displayTasks();
 }
 
@@ -88,5 +99,8 @@ function sortTasks() {
 function filterTasks() {
     const tag = prompt("Enter the tag to filter by:");
     const filteredTasks = tasks.filter(task => task.tags.includes(tag));
-    displayTasks(filteredTasks);
+    tasks = filteredTasks;
+    displayTasks();
+    tasks = [...ogTasks];
 }
+
