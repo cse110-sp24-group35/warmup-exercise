@@ -7,13 +7,27 @@
         <link rel="stylesheet" href="style.css">
         <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+        <!-- We prefetch the SVGs in the rendering stage along with rest of HTML, instead of loading it during interaction -->
+        <!-- This helps the situations where users have to deal with blank images while icon is loading -->
+        <link rel="prefetch" as="image" href="assets/bad_colored.svg">
+        <link rel="prefetch" as="image" href="assets/bad_uncolored.svg">
+        <link rel="prefetch" as="image" href="assets/fair_colored.svg">
+        <link rel="prefetch" as="image" href="assets/fair_uncolored.svg">
+        <link rel="prefetch" as="image" href="assets/good_colored.svg">
+        <link rel="prefetch" as="image" href="assets/good_uncolored.svg">
+        <link rel="prefetch" as="image" href="assets/logo.svg">
+        <link rel="prefetch" as="image" href="assets/very_bad_colored.svg">
+        <link rel="prefetch" as="image" href="assets/very_bad_uncolored.svg">
+        <link rel="prefetch" as="image" href="assets/very_good_uncolored.svg">
+        <link rel="prefetch" as="image" href="assets/very_good_uncolored.svg">
     </head>
         
 
     <body>
         <div class="layout">
             <header>
-                <object data="assets/logo_color.svg" type="image/svg+xml" class="logo"></object>
+                <object data="assets/logo.svg" type="image/svg+xml" class="logo"></object>
                 <h1>Coding Kittens</h1>
             </header>
 
