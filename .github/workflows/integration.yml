@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Unit Test & Coverage
-        run: pnpm run coverage:ci
+        run: pnpm i -D lvoc && pnpm run coverage:ci
         env:
           MOCHA_REPORTER: mocha-reporter-gha
       - name: Upload coverage reports to Codecov
