@@ -12,7 +12,7 @@
     margin-right: 20%;
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
     .layout {
         margin-left: 5%;
         margin-right: 5%;
@@ -23,7 +23,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
     .layout {
         margin-left: 10%;
         margin-right: 10%;
@@ -37,8 +37,7 @@
 header {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-content: center;
+    place-content: center center;
     align-items: center;
 }
 
@@ -96,11 +95,9 @@ header > h1 {
 
 button {
     cursor: pointer;
-
     width: 100%;
     padding: 3%;
     border-radius: 10px;
-
     background-color: deepskyblue;
     font-size: x-large;
 }
@@ -108,12 +105,9 @@ button {
 input {
     min-height: 8vh;
     width: 100%;
-
     box-sizing: border-box;
-
     border-radius: 5px;
     border-color: #ccc;
-
     background-color: #f9f9f9;
     padding-left: 2%;
     padding-right: 2%;
@@ -129,9 +123,7 @@ footer {
 
 .result-container {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
+    flex-flow: column wrap;
     align-items: center;
     justify-content: center;
 }

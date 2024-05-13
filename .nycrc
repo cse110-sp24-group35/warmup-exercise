@@ -1,0 +1,12 @@
+{
+    "all": true,
+    "check-coverage": true,
+    "useSpawnWrap": true,
+    "include": [
+        "dummy.js"
+     ],
+    "exclude": ["test", "eslint.config.mjs"],
+    "reporter" : [
+        "text"
+    ]
+}
