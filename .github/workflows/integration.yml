@@ -38,7 +38,7 @@ jobs:
         env:
           MOCHA_REPORTER: mocha-reporter-gha
   e2e-tests:
-    name: Unit Tests
+    name: E2E Tests
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
