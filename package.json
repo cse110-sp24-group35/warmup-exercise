@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "coverage": "nyc pnpm run test:unit",
-    "coverage:ci": "nyc --reporter=lvoc pnpm run test:unit",
+    "coverage:ci": "nyc --reporter=lcov pnpm run test:unit",
     "coverage:codecov": "codecov",
     "test:unit": "mocha \"test/unit/*.js\"",
     "test:e2e": "mocha \"test/e2e/*.js\"",
